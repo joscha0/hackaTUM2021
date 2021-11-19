@@ -7,7 +7,10 @@ import 'services/auth_service.dart';
 void main() {
   runApp(
     GetMaterialApp.router(
-      title: "Application",
+      title: "repair",
+      theme: ThemeData.light().copyWith(primaryColor: Colors.blue),
+      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.blue),
+      themeMode: ThemeMode.system,
       initialBinding: BindingsBuilder(
         () {
           Get.put(AuthService());
