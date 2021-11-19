@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:repair/modules/home/home_view.dart';
 import 'package:repair/modules/login/login_view.dart';
+import 'package:repair/modules/profile/profile_view.dart';
 import 'package:repair/modules/settings/settings_view.dart';
 
 import 'auth_middleware.dart';
@@ -21,7 +22,11 @@ class AppPages {
             EnsureNotAuthedMiddleware(),
           ],
           name: Routes.LOGIN,
-          page: () => LoginView(),
+          page: () => const LoginView(),
+        ),
+        GetPage(
+          name: Routes.PROFILE,
+          page: () => const ProfileView(),
         ),
         GetPage(
           name: Routes.SETTINGS,
