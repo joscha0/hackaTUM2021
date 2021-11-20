@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gardening/shared/bottom_nav_bar.dart';
+import 'package:gardening/shared/content_card.dart';
 import 'package:get/get.dart';
 import 'package:gardening/modules/profile/profile_view.dart';
-import 'package:gardening/services/app_pages.dart';
 import 'package:gardening/shared/text_styles.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
+
+  final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +25,38 @@ class HomeView extends GetView<HomeController> {
           IconButton(
             icon: const Icon(Icons.person_rounded),
             onPressed: () {
-              Get.to(() => const ProfileView());
+              Get.to(
+                () => const ProfileView(),
+              );
             },
           ),
         ],
       ),
-      body: const Center(
-        child: Text("test"),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: searchController,
+              decoration: const InputDecoration(
+                labelText: 'Search ...',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            ContentCard(
+              title: "test",
+            ),
+            ContentCard(
+              title: "test",
+            ),
+            ContentCard(
+              title: "test",
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: MyBottomNavigationBar(
         currentIndex: 0,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        label: const Text('need help'),
-        icon: const Icon(Icons.add),
       ),
     );
   }
