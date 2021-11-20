@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gardening/modules/help/help_view.dart';
 import 'package:gardening/modules/home/home_view.dart';
-import 'package:gardening/modules/profile/profile_view.dart';
 import 'package:gardening/modules/projects/projects_view.dart';
-import 'package:gardening/modules/settings/settings_view.dart';
 import 'package:get/get.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
@@ -41,15 +39,15 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       },
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.search),
+          label: 'Guides',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.local_florist),
           label: 'Projects',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.help),
+          icon: Icon(Icons.supervisor_account),
           label: 'Help',
         ),
       ],

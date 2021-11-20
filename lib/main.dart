@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/modules/home/home_view.dart';
+import 'package:gardening/modules/projects/projects_view.dart';
 import 'package:get/get.dart';
 
 import 'services/auth_service.dart';
@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-          primaryColor: Colors.blue,
+          primaryColor: Colors.green,
           colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: Colors.blue)),
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.green)),
       darkTheme: ThemeData.dark().copyWith(
-          primaryColor: Colors.blue,
+          primaryColor: Colors.green,
           colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: Colors.blue)),
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.green)),
       themeMode: ThemeMode.system,
-      home: HomeView(),
+      home: ProjectsView(),
       initialBinding: BindingsBuilder(
         () {
           Get.put(AuthService());
