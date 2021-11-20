@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'text_styles.dart';
-
 class ContentCard extends StatelessWidget {
   String title = "";
   String imageURL = "";
@@ -37,7 +35,7 @@ class ContentCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: smallHeading),
+                  Text(title, style: Theme.of(context).textTheme.headline5),
                   Text(infoText),
                 ],
               ),

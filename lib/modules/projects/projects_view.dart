@@ -3,7 +3,6 @@ import 'package:uplant/modules/projects/project_view.dart';
 import 'package:uplant/modules/projects/projects_controller.dart';
 import 'package:uplant/shared/bottom_nav_bar.dart';
 import 'package:uplant/shared/content_card.dart';
-import 'package:uplant/shared/text_styles.dart';
 import 'package:get/get.dart';
 
 import 'add_project_view.dart';
@@ -16,10 +15,11 @@ class ProjectsView extends GetView<ProjectsController> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: const Text(
+        title: Text(
           'projects',
-          style: heading,
+          style: Theme.of(context).textTheme.headline4,
         ),
       ),
       body: SingleChildScrollView(
