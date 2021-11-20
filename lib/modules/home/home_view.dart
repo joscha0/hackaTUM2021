@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gardening/shared/bottom_nav_bar.dart';
 import 'package:get/get.dart';
 import 'package:gardening/modules/profile/profile_view.dart';
 import 'package:gardening/services/app_pages.dart';
@@ -29,6 +30,9 @@ class HomeView extends GetView<HomeController> {
       ),
       body: const Center(
         child: Text("test"),
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 0,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
