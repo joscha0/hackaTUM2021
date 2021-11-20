@@ -34,28 +34,29 @@ class GuidesView extends GetView<GuidesController> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            TextFormField(
-              controller: searchController,
-              decoration: const InputDecoration(
-                labelText: 'Search ...',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            ContentCard(
-              title: "test",
-            ),
-            ContentCard(
-              title: "test",
-            ),
-            ContentCard(
-              title: "test",
-            ),
-          ],
-        ),
-      ),
+          padding: const EdgeInsets.all(20),
+          child: GetX<GuidesController>(
+              init: Get.put<GuidesController>(GuidesController()),
+              builder: (GuidesController guidesController) {
+                return Column(
+                  children: [
+                    TextFormField(
+                      controller: searchController,
+                      decoration: const InputDecoration(
+                        labelText: 'Search ...',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: guidesController.guides.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final guide = guidesController.guides[index];
+                          return ContentCard(title: guide.title);
+                        })
+                  ],
+                );
+              })),
       bottomNavigationBar: MyBottomNavigationBar(
         currentIndex: 0,
       ),
