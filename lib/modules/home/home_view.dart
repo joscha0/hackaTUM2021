@@ -53,12 +53,6 @@ class HomeView extends GetView<HomeController> {
             ContentCard(
               title: "test",
             ),
-            MaterialButton(
-              onPressed: () {
-                controller.connectDB();
-              },
-              child: Text("TestDB"),
-            ),
           ],
         ),
       ),
