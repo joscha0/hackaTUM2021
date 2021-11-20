@@ -27,8 +27,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         });
         switch (value) {
           case 0:
-            Get.off(() => const HomeView(),
-                transition: Transition.noTransition);
+            Get.off(() => HomeView(), transition: Transition.noTransition);
             break;
           case 1:
             Get.off(() => const ProjectsView(),
@@ -47,7 +46,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.work),
+          icon: Icon(Icons.local_florist),
           label: 'Projects',
         ),
         BottomNavigationBarItem(
