@@ -4,6 +4,7 @@ import 'package:uplant/shared/content_card.dart';
 import 'package:get/get.dart';
 import 'package:uplant/modules/profile/profile_view.dart';
 import 'package:uplant/shared/text_styles.dart';
+import 'guide_view.dart';
 import 'guides_controller.dart';
 
 class GuidesView extends GetView<GuidesController> {
@@ -52,7 +53,14 @@ class GuidesView extends GetView<GuidesController> {
                         itemCount: guidesController.guides.length,
                         itemBuilder: (BuildContext context, int index) {
                           final guide = guidesController.guides[index];
-                          return ContentCard(title: guide.title);
+                          return ContentCard(
+                            onPressed: () {
+                              Get.to(GuideView(guide: guide));
+                            },
+                            title: guide.title,
+                            infoText: guide.infoText,
+                            imageURL: guide.imageURL,
+                          );
                         })
                   ],
                 );
