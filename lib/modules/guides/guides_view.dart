@@ -14,7 +14,6 @@ class GuidesView extends GetView<GuidesController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut<GuidesController>(() => GuidesController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
