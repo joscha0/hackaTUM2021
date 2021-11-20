@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:repair/services/app_pages.dart';
-import 'package:repair/services/auth_service.dart';
+import 'package:gardening/services/app_pages.dart';
+import 'package:gardening/services/auth_service.dart';
 
 import 'login_controller.dart';
 

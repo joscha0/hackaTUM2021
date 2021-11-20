@@ -9,7 +9,8 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('ProfilePage')),
-        body: SafeArea(child: Text('ProfileController')));
+      appBar: AppBar(title: Text('ProfilePage')),
+      body: Container(child: Text("test")),
+    );
   }
 }

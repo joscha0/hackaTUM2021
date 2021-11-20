@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:repair/modules/profile/profile_view.dart';
-import 'package:repair/services/app_pages.dart';
-import 'package:repair/shared/text_styles.dart';
+import 'package:gardening/modules/profile/profile_view.dart';
+import 'package:gardening/services/app_pages.dart';
+import 'package:gardening/shared/text_styles.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -15,7 +15,7 @@ class HomeView extends GetView<HomeController> {
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: const Text(
-          'repair',
+          'gardening',
           style: heading,
         ),
         actions: <Widget>[

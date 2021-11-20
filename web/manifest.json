@@ -1,6 +1,6 @@
 {
-    "name": "repair",
-    "short_name": "repair",
+    "name": "gardening",
+    "short_name": "gardening",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
