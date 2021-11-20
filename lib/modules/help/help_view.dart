@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gardening/shared/bottom_nav_bar.dart';
+import 'package:gardening/shared/text_styles.dart';
 import 'package:get/get.dart';
 
 import 'help_controller.dart';
@@ -10,10 +11,22 @@ class HelpView extends GetView<HelpController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('HelpPage')),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: const Text(
+          'help',
+          style: heading,
+        ),
+      ),
       body: SafeArea(child: Text('HelpController')),
       bottomNavigationBar: MyBottomNavigationBar(
         currentIndex: 2,
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('need help'),
+        icon: const Icon(Icons.help),
       ),
     );
   }
