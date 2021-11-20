@@ -28,7 +28,7 @@ class FirebaseService {
     });
   }
 
-  static Stream<List<ProjectModel>> projectStrem() {
+  static Stream<List<ProjectModel>> projectStream() {
     return firestore
         .collection("projects")
         .snapshots()
@@ -43,7 +43,7 @@ class FirebaseService {
     });
   }
 
-  static Stream<List<HelpModel>> helpStrem() {
+  static Stream<List<HelpModel>> helpStream() {
     return firestore.collection("help").snapshots().map((QuerySnapshot query) {
       List<HelpModel> helps = [];
       for (var help in query.docs) {
@@ -55,7 +55,7 @@ class FirebaseService {
     });
   }
 
-  static Stream<List<GuideModel>> guidesStrem() {
+  static Stream<List<GuideModel>> guidesStream() {
     return firestore
         .collection("guides")
         .snapshots()
