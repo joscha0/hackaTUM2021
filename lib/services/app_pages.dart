@@ -28,6 +28,9 @@ class AppPages {
           binding: LoginBinding(),
         ),
         GetPage(
+          middlewares: [
+            EnsureAuthMiddleware(),
+          ],
           name: Routes.PROFILE,
           page: () => const ProfileView(),
           binding: ProfileBinding(),
