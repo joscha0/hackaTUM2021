@@ -20,7 +20,7 @@ class GuideModel {
     // documentId = documentSnapshot.id;
     title = documentSnapshot["title"];
     infoText = documentSnapshot["infoText"];
-    imageURL = documentSnapshot["imageURL"];
+    imageURL = documentSnapshot["imageUrl"];
     List<StepModel> stepList = [];
     documentSnapshot["steps"].forEach((stepMap) {
       stepList.add(StepModel.fromMap(stepMap: stepMap));
