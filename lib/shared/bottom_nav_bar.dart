@@ -4,7 +4,6 @@ import 'package:gardening/modules/home/home_view.dart';
 import 'package:gardening/modules/profile/profile_view.dart';
 import 'package:gardening/modules/projects/projects_view.dart';
 import 'package:gardening/modules/settings/settings_view.dart';
-import 'package:gardening/services/app_pages.dart';
 import 'package:get/get.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {

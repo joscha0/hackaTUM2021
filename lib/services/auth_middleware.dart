@@ -1,13 +1,13 @@
+import 'package:gardening/modules/login/login_view.dart';
 import 'package:get/get.dart';
 
 import 'auth_service.dart';
-import 'app_pages.dart';
 
 class EnsureAuthMiddleware extends GetMiddleware {
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
     if (!AuthService.to.isLoggedInValue) {
-      return GetNavConfig.fromRoute(Routes.LOGIN);
+      return Get.off(() => const LoginView());
     }
     return await super.redirectDelegate(route);
   }

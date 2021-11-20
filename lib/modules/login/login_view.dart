@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gardening/modules/home/home_view.dart';
 import 'package:get/get.dart';
-import 'package:gardening/services/app_pages.dart';
 import 'package:gardening/services/auth_service.dart';
 
 import 'login_controller.dart';
@@ -22,7 +22,7 @@ class LoginView extends GetView<LoginController> {
               ),
               onPressed: () {
                 AuthService.to.login();
-                Get.rootDelegate.offNamed(Routes.HOME);
+                Get.off(() => HomeView());
               },
             ),
           ],
