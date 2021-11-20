@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:repair/modules/profile/profile_view.dart';
 import 'package:repair/services/app_pages.dart';
 import 'package:repair/shared/text_styles.dart';
 import 'home_controller.dart';
@@ -21,13 +22,18 @@ class HomeView extends GetView<HomeController> {
           IconButton(
             icon: const Icon(Icons.person_rounded),
             onPressed: () {
-              Get.to(Routes.PROFILE);
+              Get.to(() => const ProfileView());
             },
           ),
         ],
       ),
       body: const Center(
         child: Text("test"),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('need help'),
+        icon: const Icon(Icons.add),
       ),
     );
   }
