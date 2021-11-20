@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CommentModel {
-  String? documentId;
   late Timestamp createdOn;
   late String ownerName;
   late String comment;
@@ -14,9 +13,14 @@ class CommentModel {
 
   CommentModel.fromDocumentSnapshot(
       {required DocumentSnapshot documentSnapshot}) {
-    documentId = documentSnapshot.id;
     ownerName = documentSnapshot["ownerName"];
     createdOn = documentSnapshot["createdOn"];
     comment = documentSnapshot["comment"];
+  }
+
+  CommentModel.fromMap({required Map commentMap}) {
+    createdOn = commentMap["createdOn"];
+    ownerName = commentMap["ownerName"];
+    comment = commentMap["comment"];
   }
 }
