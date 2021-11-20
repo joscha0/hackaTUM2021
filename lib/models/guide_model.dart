@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'step_model.dart';
 
 class GuideModel {
-  String? documentId;
+  // String? documentId;
   late String title;
   late String infoText;
   late String imageURL;
@@ -17,10 +17,14 @@ class GuideModel {
 
   GuideModel.fromDocumentSnapshot(
       {required DocumentSnapshot documentSnapshot}) {
-    documentId = documentSnapshot.id;
+    // documentId = documentSnapshot.id;
     title = documentSnapshot["title"];
     infoText = documentSnapshot["infoText"];
     imageURL = documentSnapshot["imageURL"];
-    steps = documentSnapshot["steps"];
+    List<StepModel> stepList = [];
+    documentSnapshot["steps"].forEach((stepMap) {
+      stepList.add(StepModel.fromMap(stepMap: stepMap));
+    });
+    steps = stepList;
   }
 }
