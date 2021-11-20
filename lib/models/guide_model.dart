@@ -10,9 +10,9 @@ class GuideModel {
 
   GuideModel({
     required this.title,
-    required infoText,
-    required imageURL,
-    required steps,
+    required this.infoText,
+    required this.imageURL,
+    required this.steps,
   });
 
   GuideModel.fromDocumentSnapshot(

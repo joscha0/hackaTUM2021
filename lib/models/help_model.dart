@@ -13,11 +13,10 @@ class HelpModel {
 
   HelpModel({
     required this.title,
-    required this.createdOn,
-    required ownerName,
-    required infoText,
-    required imageURL,
-    required comments,
+    required this.ownerName,
+    required this.infoText,
+    required this.imageURL,
+    required this.comments,
   });
 
   HelpModel.fromDocumentSnapshot({required DocumentSnapshot documentSnapshot}) {
