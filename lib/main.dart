@@ -20,13 +20,15 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-          primaryColor: Colors.green,
-          colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: Colors.green)),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: Colors.green,
+        primary: Colors.green,
+      )),
       darkTheme: ThemeData.dark().copyWith(
-          primaryColor: Colors.green,
-          colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: Colors.green)),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: Colors.green,
+        primary: Colors.green,
+      )),
       themeMode: ThemeMode.system,
       home: ProjectsView(),
       initialBinding: BindingsBuilder(

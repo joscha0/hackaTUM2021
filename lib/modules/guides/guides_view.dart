@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:uplant/shared/bottom_nav_bar.dart';
 import 'package:uplant/shared/content_card.dart';
 import 'package:get/get.dart';
-import 'package:uplant/modules/profile/profile_view.dart';
-import 'package:uplant/shared/text_styles.dart';
 import 'guide_view.dart';
 import 'guides_controller.dart';
 
@@ -17,21 +15,12 @@ class GuidesView extends GetView<GuidesController> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: const Text(
-          'uplant',
-          style: heading,
+        title: Text(
+          'guides',
+          style: Theme.of(context).textTheme.headline4,
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.person_rounded),
-            onPressed: () {
-              Get.to(
-                () => const ProfileView(),
-              );
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
