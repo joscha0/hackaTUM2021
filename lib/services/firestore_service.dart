@@ -3,9 +3,9 @@ import 'package:uplant/models/guide_model.dart';
 import 'package:uplant/models/help_model.dart';
 import 'package:uplant/models/project_model.dart';
 
-FirebaseFirestore firestore = FirebaseFirestore.instance;
-
 class FirebaseService {
+  static FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   static addProject(ProjectModel project) async {
     await firestore.collection("projects").add({
       'title': project.title,
