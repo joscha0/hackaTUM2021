@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/modules/projects/projects_view.dart';
+import 'package:uplant/modules/projects/projects_view.dart';
 import 'package:get/get.dart';
 
 import 'services/auth_service.dart';

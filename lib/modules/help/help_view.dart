@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/shared/bottom_nav_bar.dart';
-import 'package:gardening/shared/text_styles.dart';
+import 'package:uplant/shared/bottom_nav_bar.dart';
+import 'package:uplant/shared/text_styles.dart';
 import 'package:get/get.dart';
 
 import 'help_controller.dart';

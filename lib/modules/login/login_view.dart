@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/modules/home/home_view.dart';
+import 'package:uplant/modules/home/home_view.dart';
 import 'package:get/get.dart';
-import 'package:gardening/services/auth_service.dart';
+import 'package:uplant/services/auth_service.dart';
 
 import 'login_controller.dart';
 

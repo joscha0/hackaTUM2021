@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/modules/help/help_view.dart';
-import 'package:gardening/modules/home/home_view.dart';
-import 'package:gardening/modules/projects/projects_view.dart';
+import 'package:uplant/modules/help/help_view.dart';
+import 'package:uplant/modules/home/home_view.dart';
+import 'package:uplant/modules/projects/projects_view.dart';
 import 'package:get/get.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {

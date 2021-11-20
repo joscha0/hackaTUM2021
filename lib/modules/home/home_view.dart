@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/shared/bottom_nav_bar.dart';
-import 'package:gardening/shared/content_card.dart';
+import 'package:uplant/shared/bottom_nav_bar.dart';
+import 'package:uplant/shared/content_card.dart';
 import 'package:get/get.dart';
-import 'package:gardening/modules/profile/profile_view.dart';
-import 'package:gardening/shared/text_styles.dart';
+import 'package:uplant/modules/profile/profile_view.dart';
+import 'package:uplant/shared/text_styles.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: const Text(
-          'gardening',
+          'uplant',
           style: heading,
         ),
         actions: <Widget>[
