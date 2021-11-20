@@ -15,10 +15,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(primaryColor: Colors.blue),
-      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.blue),
+      theme: ThemeData.light().copyWith(
+          primaryColor: Colors.blue,
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.blue)),
+      darkTheme: ThemeData.dark().copyWith(
+          primaryColor: Colors.blue,
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.blue)),
       themeMode: ThemeMode.system,
-      home: const HomeView(),
+      home: HomeView(),
       initialBinding: BindingsBuilder(
         () {
           Get.put(AuthService());
