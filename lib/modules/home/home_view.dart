@@ -13,6 +13,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut<HomeController>(() => HomeController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -51,6 +52,12 @@ class HomeView extends GetView<HomeController> {
             ),
             ContentCard(
               title: "test",
+            ),
+            MaterialButton(
+              onPressed: () {
+                controller.connectDB();
+              },
+              child: Text("TestDB"),
             ),
           ],
         ),
