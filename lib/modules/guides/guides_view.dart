@@ -4,16 +4,16 @@ import 'package:uplant/shared/content_card.dart';
 import 'package:get/get.dart';
 import 'package:uplant/modules/profile/profile_view.dart';
 import 'package:uplant/shared/text_styles.dart';
-import 'home_controller.dart';
+import 'guides_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  HomeView({Key? key}) : super(key: key);
+class GuidesView extends GetView<GuidesController> {
+  GuidesView({Key? key}) : super(key: key);
 
   final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut<HomeController>(() => HomeController());
+    Get.lazyPut<GuidesController>(() => GuidesController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

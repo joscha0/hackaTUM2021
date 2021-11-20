@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uplant/modules/guides/guides_view.dart';
 import 'package:uplant/modules/help/help_view.dart';
-import 'package:uplant/modules/home/home_view.dart';
 import 'package:uplant/modules/projects/projects_view.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +24,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         });
         switch (value) {
           case 0:
-            Get.off(() => HomeView(), transition: Transition.noTransition);
+            Get.off(() => GuidesView(), transition: Transition.noTransition);
             break;
           case 1:
             Get.off(() => const ProjectsView(),
