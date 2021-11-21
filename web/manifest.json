@@ -1,6 +1,6 @@
 {
-    "name": "gardening",
-    "short_name": "gardening",
+    "name": "uplant",
+    "short_name": "uplant",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

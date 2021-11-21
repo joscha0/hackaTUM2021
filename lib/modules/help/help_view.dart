@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/shared/bottom_nav_bar.dart';
-import 'package:gardening/shared/text_styles.dart';
+import 'package:uplant/shared/bottom_nav_bar.dart';
 import 'package:get/get.dart';
 
 import 'help_controller.dart';
@@ -13,10 +12,11 @@ class HelpView extends GetView<HelpController> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: const Text(
+        title: Text(
           'help',
-          style: heading,
+          style: Theme.of(context).textTheme.headline4,
         ),
       ),
       body: SafeArea(child: Text('HelpController')),

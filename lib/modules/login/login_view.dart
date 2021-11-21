@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gardening/modules/home/home_view.dart';
+import 'package:uplant/modules/guides/guides_view.dart';
 import 'package:get/get.dart';
-import 'package:gardening/services/auth_service.dart';
+import 'package:uplant/services/auth_service.dart';
 
 import 'login_controller.dart';
 
@@ -22,7 +22,7 @@ class LoginView extends GetView<LoginController> {
               ),
               onPressed: () {
                 AuthService.to.login();
-                Get.off(() => HomeView());
+                Get.off(() => GuidesView());
               },
             ),
           ],

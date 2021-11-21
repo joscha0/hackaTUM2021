@@ -1,4 +1,4 @@
-import 'package:gardening/modules/login/login_view.dart';
+import 'package:uplant/modules/login/login_view.dart';
 import 'package:get/get.dart';
 
 import 'auth_service.dart';
