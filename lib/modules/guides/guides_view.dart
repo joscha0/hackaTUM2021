@@ -23,35 +23,24 @@ class GuidesView extends GetView<GuidesController> {
         ),
       ),
       body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
           child: GetX<GuidesController>(
               init: Get.put<GuidesController>(GuidesController()),
               builder: (GuidesController guidesController) {
-                return Column(
-                  children: [
-                    TextFormField(
-                      controller: searchController,
-                      decoration: const InputDecoration(
-                        labelText: 'Search ...',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: guidesController.guides.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final guide = guidesController.guides[index];
-                          return ContentCard(
-                            onPressed: () {
-                              Get.to(GuideView(guide: guide));
-                            },
-                            title: guide.title,
-                            infoText: guide.infoText,
-                            imageURL: guide.imageURL,
-                          );
-                        })
-                  ],
-                );
+                return ListView.builder(
+                    padding: const EdgeInsets.all(20),
+                    shrinkWrap: true,
+                    itemCount: guidesController.guides.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final guide = guidesController.guides[index];
+                      return ContentCard(
+                        onPressed: () {
+                          Get.to(GuideView(guide: guide));
+                        },
+                        title: guide.title,
+                        infoText: guide.infoText,
+                        imageURL: guide.imageURL,
+                      );
+                    });
               })),
       bottomNavigationBar: MyBottomNavigationBar(
         currentIndex: 0,
