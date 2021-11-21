@@ -24,7 +24,7 @@ class AddHelpView extends GetView<AddHelpController> {
         centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
-          'add project',
+          'ask for help',
           style: Theme.of(context).textTheme.headline5,
         ),
       ),

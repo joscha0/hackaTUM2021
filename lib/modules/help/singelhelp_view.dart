@@ -92,10 +92,13 @@ class SingleHelpView extends GetView<SingleHelpController> {
             color: Colors.white,
             child: Form(
               key: _formKey,
-              child: Wrap(
-                runSpacing: 10,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text('Comment'),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     keyboardType: TextInputType.multiline,
                     maxLines: 5,
@@ -111,7 +114,13 @@ class SingleHelpView extends GetView<SingleHelpController> {
                       return null;
                     },
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const Text('Your name'),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Enter your name',
@@ -125,21 +134,31 @@ class SingleHelpView extends GetView<SingleHelpController> {
                       return null;
                     },
                   ),
-                  Expanded(
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
                     child: ElevatedButton(
                       onPressed: () {
-                        FirebaseService.addCommentHelp(
-                            help,
-                            CommentModel(
-                              createdOn: Timestamp.now(),
-                              ownerName: nameController.text,
-                              comment: textController.text,
-                            ));
-                        Get.back();
-                        Get.back();
-                        Get.to(() => SingleHelpView(help: help));
+                        if (_formKey.currentState!.validate()) {
+                          FirebaseService.addCommentHelp(
+                              help,
+                              CommentModel(
+                                createdOn: Timestamp.now(),
+                                ownerName: nameController.text,
+                                comment: textController.text,
+                              ));
+                          Get.back();
+                          Get.back();
+                          Get.to(() => SingleHelpView(help: help));
+                        }
                       },
                       child: const Text("Add comment"),
+                    ),
+                  ),
+                  const Expanded(
+                    child: SizedBox(
+                      height: 50,
                     ),
                   ),
                 ],
