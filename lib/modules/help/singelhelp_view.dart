@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:uplant/models/comment_model.dart';
-import 'package:uplant/models/project_model.dart';
+import 'package:uplant/models/help_model.dart';
+import 'package:uplant/modules/help/singelhelp_controller.dart';
 import 'package:uplant/services/firestore_service.dart';
 
-import 'project_conroller.dart';
+import 'help_view.dart';
 
-class ProjectView extends GetView<ProjectController> {
-  ProjectModel project;
-  ProjectView({Key? key, required this.project}) : super(key: key);
+class SingleHelpView extends GetView<SingleHelpController> {
+  HelpModel help;
+  SingleHelpView({Key? key, required this.help}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ProjectView extends GetView<ProjectController> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
         title: Text(
-          project.title,
+          help.title,
           style: Theme.of(context).textTheme.headline5,
         ),
       ),
@@ -30,17 +31,17 @@ class ProjectView extends GetView<ProjectController> {
           child: Column(children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("created by: " + project.ownerName),
+              child: Text("created by: " + help.ownerName),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                DateFormat.yMMMd().add_jm().format(project.createdOn.toDate()),
+                DateFormat.yMMMd().add_jm().format(help.createdOn.toDate()),
               ),
             ),
-            Uri.tryParse(project.imageURL)!.hasAbsolutePath
+            Uri.tryParse(help.imageURL)!.hasAbsolutePath
                 ? Image.network(
-                    project.imageURL,
+                    help.imageURL,
                     height: 200,
                   )
                 : Container(),
@@ -49,9 +50,9 @@ class ProjectView extends GetView<ProjectController> {
               margin: const EdgeInsets.all(15.0),
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.green)),
-              child: Text(project.infoText),
+              child: Text(help.infoText),
             ),
-            for (var comment in project.comments)
+            for (var comment in help.comments)
               Card(
                 margin: const EdgeInsets.all(20),
                 shape: RoundedRectangleBorder(
@@ -127,8 +128,8 @@ class ProjectView extends GetView<ProjectController> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        FirebaseService.addCommentProject(
-                            project,
+                        FirebaseService.addCommentHelp(
+                            help,
                             CommentModel(
                               createdOn: Timestamp.now(),
                               ownerName: nameController.text,
@@ -136,7 +137,7 @@ class ProjectView extends GetView<ProjectController> {
                             ));
                         Get.back();
                         Get.back();
-                        Get.to(() => ProjectView(project: project));
+                        Get.to(() => SingleHelpView(help: help));
                       },
                       child: const Text("Add comment"),
                     ),

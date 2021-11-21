@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uplant/modules/help/singelhelp_view.dart';
 import 'package:uplant/shared/bottom_nav_bar.dart';
 import 'package:get/get.dart';
+import 'package:uplant/shared/content_card.dart';
 
 import 'help_controller.dart';
 
@@ -19,7 +21,26 @@ class HelpView extends GetView<HelpController> {
           style: Theme.of(context).textTheme.headline4,
         ),
       ),
-      body: SafeArea(child: Text('HelpController')),
+      body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: GetX<HelpController>(
+              init: Get.put<HelpController>(HelpController()),
+              builder: (HelpController helpsController) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: helpsController.helps.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final help = helpsController.helps[index];
+                      return ContentCard(
+                        onPressed: () {
+                          Get.to(SingleHelpView(help: help));
+                        },
+                        title: help.title,
+                        infoText: help.infoText,
+                        imageURL: help.imageURL,
+                      );
+                    });
+              })),
       bottomNavigationBar: MyBottomNavigationBar(
         currentIndex: 2,
       ),
