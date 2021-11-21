@@ -20,38 +20,44 @@ class GuideView extends GetView<GuideController> {
             style: Theme.of(context).textTheme.headline5,
           ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              margin: const EdgeInsets.all(15.0),
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.green)),
-              child: Text(
-                guide.infoText,
-                textAlign: TextAlign.center,
-              ),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.all(15.0),
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.green)),
+                  child: Text(
+                    guide.infoText,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                for (var step in guide.steps)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        step.title,
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      Text(
+                        step.text,
+                      ),
+                      Uri.tryParse(step.imageURL)!.hasAbsolutePath
+                          ? Image.network(
+                              step.imageURL,
+                              height: 200,
+                            )
+                          : Container(),
+                    ],
+                  )
+              ],
             ),
-            for (var step in guide.steps)
-              Column(
-                children: [
-                  Text(
-                    step.title,
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  Text(
-                    step.text,
-                  ),
-                  Uri.tryParse(step.imageURL)!.hasAbsolutePath
-                      ? Image.network(
-                          step.imageURL,
-                          height: 200,
-                        )
-                      : Container(),
-                ],
-              )
-          ],
+          ),
         ));
   }
 }
