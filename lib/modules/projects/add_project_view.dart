@@ -18,7 +18,15 @@ class AddProjectView extends GetView<AddProjectController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('AddProjectPage')),
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text(
+          'add project',
+          style: Theme.of(context).textTheme.headline5,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -57,6 +65,7 @@ class AddProjectView extends GetView<AddProjectController> {
               const Text('Description'),
               TextFormField(
                 keyboardType: TextInputType.multiline,
+                maxLines: 10,
                 decoration: const InputDecoration(
                   labelText: 'Enter a text',
                   border: OutlineInputBorder(),
