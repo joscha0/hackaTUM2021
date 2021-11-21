@@ -15,14 +15,42 @@ class GuideView extends GetView<GuideController> {
           elevation: 0,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           centerTitle: true,
-          title: Text(guide.title),
+          title: Text(
+            guide.title,
+            style: Theme.of(context).textTheme.headline5,
+          ),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(guide.infoText),
-            Text(
-              guide.steps[0].title,
-            )
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(15.0),
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.green)),
+              child: Text(
+                guide.infoText,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            for (var step in guide.steps)
+              Column(
+                children: [
+                  Text(
+                    step.title,
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Text(
+                    step.text,
+                  ),
+                  Uri.tryParse(step.imageURL)!.hasAbsolutePath
+                      ? Image.network(
+                          step.imageURL,
+                          height: 200,
+                        )
+                      : Container(),
+                ],
+              )
           ],
         ));
   }
