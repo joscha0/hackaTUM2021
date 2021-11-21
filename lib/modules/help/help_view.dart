@@ -4,6 +4,7 @@ import 'package:uplant/shared/bottom_nav_bar.dart';
 import 'package:get/get.dart';
 import 'package:uplant/shared/content_card.dart';
 
+import 'add_help_view.dart';
 import 'help_controller.dart';
 
 class HelpView extends GetView<HelpController> {
@@ -45,7 +46,9 @@ class HelpView extends GetView<HelpController> {
         currentIndex: 2,
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(AddHelpView());
+        },
         label: const Text('need help'),
         icon: const Icon(Icons.help),
       ),
