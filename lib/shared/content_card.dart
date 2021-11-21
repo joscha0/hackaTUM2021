@@ -23,11 +23,7 @@ class ContentCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Uri.tryParse(imageURL)!.hasAbsolutePath
-                ? Container(
-                    constraints:
-                        const BoxConstraints(minWidth: 100, maxWidth: 200),
-                    child: Image.network(imageURL),
-                  )
+                ? Image.network(imageURL)
                 : Container(),
             Padding(
               padding: const EdgeInsets.all(28),
