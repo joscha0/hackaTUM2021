@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uplant/models/comment_model.dart';
 import 'package:uplant/models/guide_model.dart';
 import 'package:uplant/models/help_model.dart';
 import 'package:uplant/models/project_model.dart';
@@ -67,6 +68,18 @@ class FirebaseService {
         guides.add(guideModel);
       }
       return guides;
+    });
+  }
+
+  static void addCommentProject(
+      ProjectModel project, CommentModel comment) async {
+    project.comments.add(comment);
+    List comments = [];
+    project.comments.forEach((comment) {
+      comments.add(CommentModel.toMap(comment));
+    });
+    await firestore.collection("projects").doc(project.documentId).update({
+      "comments": comments,
     });
   }
 }

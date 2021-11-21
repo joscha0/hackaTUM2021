@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'comment_model.dart';
 
 class ProjectModel {
-  // String? documentId;
+  String? documentId;
   late String title;
   late Timestamp createdOn;
   late String ownerName;
@@ -21,7 +21,7 @@ class ProjectModel {
 
   ProjectModel.fromDocumentSnapshot(
       {required DocumentSnapshot documentSnapshot}) {
-    // documentId = documentSnapshot.id;
+    documentId = documentSnapshot.id;
     title = documentSnapshot["title"];
     createdOn = documentSnapshot["createdOn"];
     ownerName = documentSnapshot["ownerName"];

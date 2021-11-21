@@ -23,4 +23,12 @@ class CommentModel {
     ownerName = commentMap["ownerName"];
     comment = commentMap["comment"];
   }
+
+  static Map toMap(CommentModel commentModel) {
+    return {
+      "createdOn": commentModel.createdOn,
+      "ownerName": commentModel.ownerName,
+      "comment": commentModel.comment,
+    };
+  }
 }
