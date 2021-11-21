@@ -17,6 +17,9 @@ class ContentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: InkWell(
         onTap: onPressed,
         child: Column(

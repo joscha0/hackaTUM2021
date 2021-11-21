@@ -30,83 +30,88 @@ class AddProjectView extends GetView<AddProjectController> {
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
-          child: Column(
-            children: [
-              const Text('Title'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Enter a Name',
-                  border: OutlineInputBorder(),
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Text('Title'),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Enter a Name',
+                    border: OutlineInputBorder(),
+                  ),
+                  controller: titleController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter a title!';
+                    }
+                    return null;
+                  },
                 ),
-                controller: titleController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a title!';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              const Text('Your name'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Enter your name',
-                  border: OutlineInputBorder(),
+                const SizedBox(height: 20),
+                const Text('Your name'),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Enter your name',
+                    border: OutlineInputBorder(),
+                  ),
+                  controller: nameController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter a name!';
+                    }
+                    return null;
+                  },
                 ),
-                controller: nameController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a name!';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              const Text('Description'),
-              TextFormField(
-                keyboardType: TextInputType.multiline,
-                maxLines: 10,
-                decoration: const InputDecoration(
-                  labelText: 'Enter a text',
-                  border: OutlineInputBorder(),
+                const SizedBox(height: 20),
+                const Text('Description'),
+                TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 10,
+                  decoration: const InputDecoration(
+                    labelText: 'Enter a text',
+                    border: OutlineInputBorder(),
+                  ),
+                  controller: textController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter a text!';
+                    }
+                    return null;
+                  },
                 ),
-                controller: textController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a text!';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              const Text('Image URL'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Enter a image url',
-                  border: OutlineInputBorder(),
+                const SizedBox(height: 20),
+                const Text('Image URL'),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Enter a image url',
+                    border: OutlineInputBorder(),
+                  ),
+                  controller: imageController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter a image url!';
+                    }
+                    return null;
+                  },
                 ),
-                controller: imageController,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a image url!';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              MaterialButton(
-                onPressed: () {
-                  FirebaseService.addProject(ProjectModel(
-                      title: titleController.text,
-                      ownerName: nameController.text,
-                      infoText: textController.text,
-                      imageURL: imageController.text,
-                      comments: []));
-                  Get.back();
-                },
-                child: Text("Add project"),
-              )
-            ],
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      FirebaseService.addProject(ProjectModel(
+                          title: titleController.text,
+                          ownerName: nameController.text,
+                          infoText: textController.text,
+                          imageURL: imageController.text,
+                          comments: []));
+                      Get.back();
+                    }
+                  },
+                  child: Text("Add project"),
+                )
+              ],
+            ),
           ),
         ),
       ),

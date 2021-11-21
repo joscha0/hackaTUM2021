@@ -82,4 +82,15 @@ class FirebaseService {
       "comments": comments,
     });
   }
+
+  static void addCommentHelp(HelpModel help, CommentModel comment) async {
+    help.comments.add(comment);
+    List comments = [];
+    help.comments.forEach((comment) {
+      comments.add(CommentModel.toMap(comment));
+    });
+    await firestore.collection("help").doc(help.documentId).update({
+      "comments": comments,
+    });
+  }
 }

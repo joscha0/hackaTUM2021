@@ -29,13 +29,17 @@ class MyApp extends StatelessWidget {
           primary: Colors.green,
         ),
         textTheme: GoogleFonts.interTextTheme().copyWith(
-            headline4: GoogleFonts.inter(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.green,
-            ),
-            headline5: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+          headline4: GoogleFonts.inter(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+          headline5: GoogleFonts.inter(fontWeight: FontWeight.bold),
+          headline6: GoogleFonts.inter(
+            decoration: TextDecoration.underline,
+            decorationColor: Colors.green,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
 
       // darkTheme: ThemeData.dark().copyWith(

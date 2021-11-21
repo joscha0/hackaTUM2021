@@ -26,6 +26,12 @@ class GuideView extends GetView<GuideController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Uri.tryParse(guide.imageURL)!.hasAbsolutePath
+                    ? Image.network(
+                        guide.imageURL,
+                        height: 200,
+                      )
+                    : Container(),
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   margin: const EdgeInsets.all(15.0),
@@ -42,7 +48,7 @@ class GuideView extends GetView<GuideController> {
                     children: [
                       Text(
                         step.title,
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                       Text(
                         step.text,
@@ -53,6 +59,7 @@ class GuideView extends GetView<GuideController> {
                               height: 200,
                             )
                           : Container(),
+                      const SizedBox(height: 30)
                     ],
                   )
               ],
